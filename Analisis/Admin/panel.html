@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelStore | Panel de Administración</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+    <header class="barra-superior">
+        <a class="marca" href="panel.html">
+            <img class="logo-empresa" src="../Imagenes/pixel_store.jpg" alt="Logo de PixelStore">
+            <span>PixelStore Admin</span>
+        </a>
+        <nav class="navegacion-admin">
+            <a href="#" class="activo">Productos</a>
+            <a href="#">Pedidos</a>
+            <a href="#">Reportes</a>
+            <a class="enlace-sesion" href="../Login/login.html">Cerrar sesión</a>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <section class="panel-gestion">
+            <div class="encabezado-gestion">
+                <h1>Gestión de Productos</h1>
+                <button id="btn-nuevo-producto" class="boton-principal">Nuevo producto</button>
+            </div>
+
+            <!-- Formulario oculto por defecto -->
+            <div id="contenedor-formulario" class="oculto">
+                <form id="formulario-producto">
+                    <h2>Registrar nuevo producto</h2>
+                    
+                    <div class="campo">
+                        <label for="pd_nombre">Nombre del producto</label>
+                        <input type="text" id="pd_nombre" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="pd_categoria">Categoría</label>
+                        <select id="pd_categoria" required>
+                            <option value="">Seleccione una categoría</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Audio">Audio</option>
+                            <option value="Pantallas">Pantallas</option>
+                            <option value="Computacion">Computación</option>
+                            <option value="Almacenamiento">Almacenamiento</option>
+                            <option value="Oficina">Oficina</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="pd_precio">Precio (COP)</label>
+                        <input type="number" id="pd_precio" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="pd_descripcion">Descripción</label>
+                        <textarea id="pd_descripcion" rows="3" required></textarea>
+                    </div>
+
+                    <div class="acciones-form">
+                        <button type="submit" class="boton-principal">Guardar Producto</button>
+                        <button type="button" id="btn-cancelar" class="boton-secundario">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tabla de productos -->
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-productos">
+                    <tr>
+                        <td>1</td>
+                        <td>Teclado mecánico</td>
+                        <td>Accesorios</td>
+                        <td>$150.000</td>
+                        <td><button class="btn-editar">Editar</button> <button class="btn-eliminar">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mouse inalámbrico</td>
+                        <td>Accesorios</td>
+                        <td>$65.000</td>
+                        <td><button class="btn-editar">Editar</button> <button class="btn-eliminar">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="panel.js"></script>
+</body>
+</html>

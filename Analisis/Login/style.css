@@ -1,0 +1,217 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: #eef4f8;
+    color: #203040;
+}
+
+.encabezado {
+    width: 100%;
+    padding: 20px 8%;
+    background: #123b55;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.identidad-marca {
+    align-items: center;
+    color: white;
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-empresa {
+    background: white;
+    border-radius: 6px;
+    height: 48px;
+    object-fit: cover;
+    width: 58px;
+}
+
+.encabezado h1 {
+    font-size: 30px;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+.boton-nav, .boton-principal {
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.boton-nav {
+    padding: 10px 14px;
+    background: transparent;
+    color: white;
+}
+
+.boton-nav:hover, .boton-nav.activo {
+    background: #e5a93d;
+    color: #203040;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 480px;
+    margin: 10vh auto;
+}
+
+.seccion { display: none; }
+.seccion.activa { display: block; }
+
+.seccion#inicio {
+    text-align: center;
+    padding: 55px 25px;
+}
+
+.seccion#inicio p {
+    margin: 15px 0 28px;
+    font-size: 18px;
+}
+
+form {
+    background: white;
+    border: 1px solid #d4e0e8;
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: 0 8px 22px rgba(32, 48, 64, 0.12);
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: #123b55;
+}
+
+.descripcion-form {
+    text-align: center;
+    color: #607482;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.campo {
+    margin-bottom: 17px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #b8cbd7;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #1976a8;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    padding-right: 40px;
+}
+
+.btn-toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #607482;
+}
+
+.opciones-extra {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.enlace-olvido {
+    color: #1976a8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.enlace-olvido:hover {
+    text-decoration: underline;
+}
+
+.boton-principal {
+    width: 100%;
+    padding: 13px;
+    margin-top: 8px;
+    background: #1976a8;
+    color: white;
+    font-size: 16px;
+}
+
+.boton-principal:hover {
+    background: #145d85;
+}
+
+.mensaje {
+    min-height: 20px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.correcto { color: #187443; }
+.error { color: #b3261e; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #607482;
+}
+
+@media (max-width: 800px) {
+    .encabezado {
+        flex-direction: column;
+        padding: 18px 5%;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .boton-nav {
+        flex: 1;
+    }
+}
+
+@media (max-width: 450px) {
+    form {
+        padding: 25px 20px;
+    }
+}

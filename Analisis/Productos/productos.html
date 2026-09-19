@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelStore | Productos</title>
+    <link rel="stylesheet" href="productos.css">
+</head>
+<body>
+    <header class="barra-superior">
+        <a class="marca" href="productos.html">
+            <img class="logo-empresa" src="../Imagenes/pixel_store.jpg" alt="Logo de PixelStore">
+            <span>PixelStore</span>
+        </a>
+        <div class="opciones-usuario">
+            <span id="contador-carrito">🛒 Carrito (0)</span>
+            <a id="btn-cerrar-sesion" class="enlace-sesion" href="#">Cerrar sesión</a>
+        </div>
+    </header>
+
+    <main class="contenido">
+        <section class="panel-productos" aria-labelledby="titulo-productos">
+            <h1 id="titulo-productos">Selección de producto</h1>
+            <p class="subtitulo">Elige un producto para continuar.</p>
+
+            <div class="cuadricula-productos">
+                <article class="producto" data-categoria="accesorios">
+                    <h2>Teclado mecanico</h2>
+                    <p>Teclado compacto con luces LED.</p>
+                    <span class="categoria">Accesorios</span>
+                    <span class="precio">$150.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Teclado mecanico">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="accesorios">
+                    <h2>Mouse inalambrico</h2>
+                    <p>Mouse comodo para trabajar o jugar.</p>
+                    <span class="categoria">Accesorios</span>
+                    <span class="precio">$65.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Mouse inalambrico">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="audio">
+                    <h2>Audifonos</h2>
+                    <p>Sonido claro y conexion inalambrica.</p>
+                    <span class="categoria">Audio</span>
+                    <span class="precio">$120.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Audifonos">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="pantallas">
+                    <h2>Monitor HD</h2>
+                    <p>Pantalla de 24 pulgadas para tu escritorio.</p>
+                    <span class="categoria">Pantallas</span>
+                    <span class="precio">$450.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Monitor HD">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="computacion">
+                    <h2>Camara web</h2>
+                    <p>Imagen nitida para tus videollamadas.</p>
+                    <span class="categoria">Computacion</span>
+                    <span class="precio">$90.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Camara web">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="audio">
+                    <h2>Parlante portatil</h2>
+                    <p>Musica con buena potencia en cualquier lugar.</p>
+                    <span class="categoria">Audio</span>
+                    <span class="precio">$110.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Parlante portatil">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="almacenamiento">
+                    <h2>Memoria USB</h2>
+                    <p>Guarda tus archivos de forma sencilla.</p>
+                    <span class="categoria">Almacenamiento</span>
+                    <span class="precio">$35.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Memoria USB">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="oficina">
+                    <h2>Soporte para laptop</h2>
+                    <p>Eleva tu computador y mejora tu postura.</p>
+                    <span class="categoria">Oficina</span>
+                    <span class="precio">$45.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Soporte para laptop">Seleccionar</button>
+                </article>
+                <article class="producto" data-categoria="audio">
+                    <h2>Microfono USB</h2>
+                    <p>Voz clara para clases y reuniones.</p>
+                    <span class="categoria">Audio</span>
+                    <span class="precio">$85.000</span>
+                    <button class="boton-seleccionar" type="button" data-producto="Microfono USB">Seleccionar</button>
+                </article>
+            </div>
+
+            <div class="resumen-carrito" aria-live="polite">
+                <h2>Resumen de tu carrito</h2>
+                <ul id="lista-carrito">
+                    <li id="mensaje-vacio">No has agregado ningún producto.</li>
+                </ul>
+                <div class="total-carrito">
+                    <strong>Total a pagar: </strong> <span id="total-pagar">$0</span>
+                </div>
+                <button id="btn-comprar" class="boton-principal" disabled>Simular Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="productos.js"></script>
+</body>
+</html>

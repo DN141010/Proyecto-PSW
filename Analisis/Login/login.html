@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Store | Acceso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="encabezado">
+    <a class="identidad-marca" href="login.html">
+      <img class="logo-empresa" src="../Imagenes/pixel_store.jpg" alt="Logo de Pixel Store">
+      <h1>Pixel Store</h1>
+    </a>
+    <nav aria-label="Navegación principal">
+      <button class="boton-nav activo" data-seccion="inicio" type="button">Inicio</button>
+      <button class="boton-nav" data-seccion="ingreso" type="button">Ingresar</button>
+      <button class="boton-nav" data-seccion="registro" type="button">Registrarse</button>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+
+    <section id="inicio" class="seccion activa">
+      <h2>Bienvenido a Pixel Store</h2>
+      <p>Compra tus productos favoritos de forma sencilla y segura.</p>
+      <button class="boton-principal cambiar-seccion" data-seccion="ingreso" type="button">Ingresar a mi cuenta</button>
+    </section>
+
+    <section id="ingreso" class="seccion">
+      <form id="formulario-ingreso">
+        <h2>Inicio de sesión</h2>
+        <p class="descripcion-form">Ingresa tus credenciales para acceder a tu cuenta.</p>
+
+        <div class="campo">
+          <label for="in_email">Correo electrónico</label>
+          <input type="email" name="correo" id="in_email" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="in_password">Contraseña</label>
+          <div class="input-wrapper">
+            <input type="password" name="contrasena" id="in_password" placeholder="Ingresa tu contraseña" required>
+            <button type="button" class="btn-toggle-password" data-target="in_password">Ver</button>
+          </div>
+        </div>
+
+        <div class="opciones-extra">
+          <a href="#" class="enlace-olvido">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button class="boton-principal" type="submit">Iniciar sesión</button>
+        <p id="mensaje-ingreso" class="mensaje" role="status"></p>
+      </form>
+    </section>
+
+    <section id="registro" class="seccion">
+      <form id="formulario-registro">
+        <h2>Crear cuenta</h2>
+        <p class="descripcion-form">Únete a nosotros para comprar tus productos favoritos.</p>
+
+        <div class="campo">
+          <label for="rg_name">Nombre completo</label>
+          <input type="text" name="nombre" id="rg_name" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="rg_email">Correo electrónico</label>
+          <input type="email" name="correo" id="rg_email" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="rg_password">Contraseña</label>
+          <div class="input-wrapper">
+            <input type="password" name="contrasena" id="rg_password" placeholder="Mínimo 4 caracteres" minlength="4" required>
+            <button type="button" class="btn-toggle-password" data-target="rg_password">Ver</button>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="rg_confirmacion">Confirmar contraseña</label>
+          <div class="input-wrapper">
+            <input type="password" id="rg_confirmacion" placeholder="Repite tu contraseña" required>
+            <button type="button" class="btn-toggle-password" data-target="rg_confirmacion">Ver</button>
+          </div>
+        </div>
+
+        <button class="boton-principal" type="submit">Crear cuenta</button>
+        <p id="mensaje-registro" class="mensaje" role="status"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>Pixel Store</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+Usuario: [admin@pixelstore.com]
+Contraseña : [admin123]

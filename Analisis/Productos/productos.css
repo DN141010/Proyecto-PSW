@@ -1,0 +1,64 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { min-height: 100vh; background: #eef4f8; color: #203040; font-family: Arial, sans-serif; }
+
+.barra-superior { align-items: center; background: #123b55; color: #fff; display: flex; justify-content: space-between; padding: 20px 8%; }
+.marca, .enlace-sesion { color: #fff; text-decoration: none; }
+.marca { align-items: center; display: flex; font-size: 30px; font-weight: bold; gap: 10px; }
+.logo-empresa { background: #fff; border-radius: 6px; height: 48px; object-fit: cover; width: 58px; }
+.enlace-sesion { font-size: 14px; }
+.enlace-sesion { border-radius: 6px; padding: 10px 14px; }
+.enlace-sesion:hover { background: #e5a93d; color: #203040; }
+.opciones-usuario { display: flex; align-items: center; gap: 15px; }
+#contador-carrito { background: #e5a93d; color: #203040; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; }
+.contenido { padding: 38px 20px; }
+.panel-productos { background: #fff; border: 1px solid #d4e0e8; border-radius: 8px; box-shadow: 0 8px 22px rgba(32, 48, 64, 0.12); margin: 0 auto; max-width: 900px; padding: 35px; }
+.panel-productos h1 { color: #123b55; font-size: 26px; margin-bottom: 8px; text-align: center; }
+.subtitulo { color: #607482; margin-bottom: 24px; text-align: center; }
+.cuadricula-productos { display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+
+.producto { border: 2px solid #d4e0e8; border-radius: 8px; display: flex; flex-direction: column; min-height: 160px; padding: 20px; border-top-width: 6px; }
+.producto:hover { box-shadow: 0 6px 16px rgba(32, 48, 64, 0.15); transform: translateY(-3px); transition: all 0.2s ease; }
+.producto h2 { color: #123b55; font-size: 16px; margin-bottom: 8px; }
+.producto p { color: #607482; font-size: 13px; line-height: 1.4; min-height: 36px; margin-bottom: 10px; }
+
+.categoria { display: inline-block; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; margin-bottom: 10px; align-self: flex-start; }
+
+/* Colores por categoria */
+.producto[data-categoria="accesorios"] { border-top-color: #f28b82; }
+.producto[data-categoria="accesorios"] .categoria { background: #fce8e6; color: #b00020; }
+
+.producto[data-categoria="audio"] { border-top-color: #fbbc04; }
+.producto[data-categoria="audio"] .categoria { background: #fef7e0; color: #b06000; }
+
+.producto[data-categoria="pantallas"] { border-top-color: #34a853; }
+.producto[data-categoria="pantallas"] .categoria { background: #e6f4ea; color: #137333; }
+
+.producto[data-categoria="computacion"] { border-top-color: #4285f4; }
+.producto[data-categoria="computacion"] .categoria { background: #e8f0fe; color: #1967d2; }
+
+.producto[data-categoria="almacenamiento"] { border-top-color: #af5cc7; }
+.producto[data-categoria="almacenamiento"] .categoria { background: #f3e8f9; color: #681da8; }
+
+.producto[data-categoria="oficina"] { border-top-color: #ff6d00; }
+.producto[data-categoria="oficina"] .categoria { background: #ffefe6; color: #b34a00; }
+
+.precio { font-size: 18px; font-weight: bold; color: #123b55; margin-bottom: 15px; }
+.boton-seleccionar { align-self: flex-end; background: #1976a8; border: 0; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold; margin-top: auto; padding: 9px 11px; }
+.boton-seleccionar:hover, .boton-seleccionar.seleccionado { background: #e5a93d; color: #203040; }
+.resumen-carrito { background: #fff; border: 2px dashed #b8cbd7; border-radius: 8px; margin-top: 30px; padding: 25px; }
+.resumen-carrito h2 { color: #123b55; font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #eef4f8; padding-bottom: 10px; }
+#lista-carrito { list-style: none; margin-bottom: 15px; font-size: 14px; color: #203040; }
+#lista-carrito li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f9fbfc; }
+#mensaje-vacio { color: #607482; font-style: italic; justify-content: center !important; border: none !important; }
+.total-carrito { display: flex; justify-content: space-between; font-size: 18px; color: #123b55; margin-bottom: 20px; }
+.boton-principal { background: #1976a8; border: 0; border-radius: 6px; color: white; cursor: pointer; font-size: 14px; font-weight: bold; padding: 12px 20px; width: 100%; }
+.boton-principal:hover:not(:disabled) { background: #145d85; }
+.boton-principal:disabled { background: #b8cbd7; cursor: not-allowed; }
+
+@media (max-width: 650px) {
+    .barra-superior { padding: 18px 5%; }
+    .contenido { padding: 20px 12px; }
+    .panel-productos { padding: 25px 20px; }
+    .cuadricula-productos { grid-template-columns: 1fr; }
+}

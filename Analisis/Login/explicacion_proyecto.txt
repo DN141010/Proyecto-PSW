@@ -1,0 +1,587 @@
+GUIA SENCILLA DEL PROYECTO PIXEL STORE
+=======================================
+
+Este archivo explica de forma sencilla las partes principales de:
+- login.html: estructura y contenido de la pagina.
+- style.css: colores, tamaños y diseño.
+- script.js: comportamiento y validaciones.
+
+La pagina tiene tres partes principales: Inicio, Ingresar y Registrarse.
+
+
+1. EXPLICACION DEL ARCHIVO HTML
+================================
+
+<!DOCTYPE html>
+Indica que el documento utiliza HTML5, que es la version actual de HTML.
+
+<html lang="es">
+Es la etiqueta principal de la pagina. lang="es" indica que el idioma es español.
+
+<head>
+Contiene informacion de la pagina que normalmente no se muestra directamente.
+
+<meta charset="UTF-8">
+Permite utilizar tildes, la letra ñ y otros caracteres especiales.
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+Hace que la pagina se adapte a celulares, tabletas y computadores.
+
+<title>Pixel Store | Acceso</title>
+Es el texto que aparece en la pestaña del navegador.
+
+<link rel="stylesheet" href="style.css">
+Conecta el archivo HTML con el archivo de estilos CSS.
+- href="style.css" indica el nombre del archivo que se va a cargar.
+
+<body>
+Contiene todo lo que el usuario puede ver en la pagina.
+
+<header class="encabezado">
+Es la cabecera o parte superior de la pagina.
+- class="encabezado" conecta este elemento con los estilos de CSS que tienen ese nombre.
+
+<h1>Pixel Store</h1>
+Es el titulo principal de la pagina. h1 es el encabezado mas importante.
+
+<nav aria-label="Navegacion principal">
+Contiene los botones principales de navegacion.
+- aria-label describe la navegacion para herramientas de accesibilidad.
+
+<button class="boton-nav activo" data-seccion="inicio" type="button">Inicio</button>
+Crea un boton para mostrar la seccion Inicio.
+- class="boton-nav" aplica el estilo de los botones del menu.
+- activo indica que este boton empieza seleccionado.
+- data-seccion="inicio" guarda el nombre de la seccion que debe mostrar JavaScript.
+- type="button" evita que el boton intente enviar un formulario.
+
+<section id="inicio" class="seccion activa">
+Representa una seccion independiente de la pagina.
+- id="inicio" identifica la seccion de forma unica.
+- class="seccion" aplica el estilo general de las secciones.
+- activa hace que esta seccion se vea al comenzar.
+
+<h2>Bienvenido a Pixel Store</h2>
+Es un subtitulo. h2 se usa para los titulos de las secciones.
+
+<p>...</p>
+Es un parrafo de texto.
+
+<button class="boton-principal cambiar-seccion" data-seccion="ingreso" type="button">
+Es un boton grande para ir al formulario de ingreso.
+- boton-principal aplica el estilo del boton grande.
+- cambiar-seccion identifica que tambien cambia de seccion.
+- data-seccion="ingreso" indica que debe mostrar la seccion ingreso.
+
+<section id="ingreso" class="seccion">
+Es la seccion donde el usuario inicia sesion. No tiene la clase activa al comienzo,
+por eso empieza oculta mediante CSS.
+
+<form id="formulario-ingreso">
+Agrupa los campos y botones del formulario de ingreso.
+- id permite que JavaScript encuentre este formulario.
+
+<label for="in_email">Correo electronico</label>
+Es el texto que explica que dato debe escribir el usuario.
+- for conecta la etiqueta con el input que tiene ese mismo id.
+
+<input type="email" name="correo" id="in_email" placeholder="..." required>
+Es una caja para escribir el correo.
+- type="email" revisa que parezca un correo electronico.
+- name identifica el dato del campo.
+- id identifica el campo para HTML, CSS y JavaScript.
+- placeholder muestra un ejemplo dentro de la caja.
+- required obliga a llenar el campo.
+
+<input type="password" ...>
+Es una caja para escribir una contraseña. Oculta los caracteres escritos.
+
+<button class="boton-principal" type="submit">Iniciar sesion</button>
+Es el boton que envia el formulario.
+- type="submit" indica que el boton envia el formulario.
+
+<p id="mensaje-ingreso" class="mensaje" role="status"></p>
+Es un espacio vacio donde JavaScript muestra si el ingreso fue correcto o no.
+- role="status" indica que el texto informa un cambio al usuario.
+
+<section id="registro" class="seccion">
+Es la seccion para crear una cuenta nueva.
+
+<form id="formulario-registro">
+Es el formulario que contiene los datos del nuevo usuario.
+
+<input type="text" ...>
+Permite escribir texto normal, en este caso el nombre completo.
+
+<input type="password" id="rg_password" minlength="4" ...>
+Permite escribir la contraseña.
+- minlength="4" pide como minimo cuatro caracteres.
+
+<input type="password" id="rg_confirmacion" ...>
+Permite repetir la contraseña para comprobar que fue escrita correctamente.
+
+<p id="mensaje-registro" class="mensaje" role="status"></p>
+Aqui JavaScript muestra mensajes como registro exitoso o contraseñas diferentes.
+
+<footer>Pixel Store</footer>
+Es el pie de pagina. Normalmente contiene informacion final del sitio.
+
+<script src="script.js"></script>
+Conecta el HTML con el archivo JavaScript.
+- src="script.js" indica el archivo que contiene las instrucciones de comportamiento.
+
+
+2. EXPLICACION DEL ARCHIVO CSS
+================================
+
+* {
+Selecciona todos los elementos de la pagina.
+
+margin: 0;
+padding: 0;
+Elimina los espacios automaticos que agrega el navegador.
+
+box-sizing: border-box;
+Hace que el ancho y alto incluyan el contenido, el borde y el relleno.
+Esto ayuda a que las cajas tengan un tamaño mas facil de controlar.
+
+body {
+Aplica estilos a todo el cuerpo de la pagina.
+
+font-family: Arial, sans-serif;
+Define el tipo de letra. Arial es la primera opcion y sans-serif una alternativa.
+
+min-height: 100vh;
+Hace que la pagina tenga como minimo el alto completo de la pantalla.
+
+background: #eef4f8;
+Define el color de fondo. El codigo despues de # representa un color hexadecimal.
+
+color: #203040;
+Define el color general de los textos.
+
+.encabezado {
+El punto indica que se esta seleccionando una clase llamada encabezado.
+
+width: 100%;
+La cabecera ocupa todo el ancho disponible.
+
+padding: 20px 8%;
+Agrega espacio interno: 20 pixeles arriba y abajo, y 8 por ciento a los lados.
+
+background: #123b55;
+Cambia el color de fondo de la cabecera.
+
+color: white;
+Cambia el color del texto de la cabecera a blanco.
+
+display: flex;
+Coloca los elementos de la cabecera de forma flexible y en una misma fila.
+
+align-items: center;
+Alinea los elementos verticalmente en el centro.
+
+justify-content: space-between;
+Separa el titulo y el menu, colocando uno a cada lado.
+
+gap: 20px;
+Deja 20 pixeles de espacio entre los elementos.
+
+.encabezado h1 {
+Selecciona el h1 que esta dentro de la clase encabezado.
+
+font-size: 30px;
+Define el tamaño del titulo.
+
+nav {
+Selecciona el elemento de navegacion.
+
+display: flex;
+Coloca los botones de navegacion en fila.
+
+gap: 8px;
+Deja 8 pixeles entre los botones.
+
+.boton-nav, .boton-principal {
+Selecciona dos clases al mismo tiempo. La coma permite compartir estilos.
+
+border: 0;
+Quita el borde automatico de los botones.
+
+border-radius: 6px;
+Redondea un poco las esquinas.
+
+cursor: pointer;
+Muestra la mano cuando el cursor pasa por encima.
+
+font-weight: bold;
+Pone el texto en negrita.
+
+.boton-nav:hover, .boton-nav.activo {
+Aplica estilos cuando el boton se toca con el cursor o tiene la clase activo.
+
+.seccion { display: none; }
+Oculta todas las secciones inicialmente.
+
+.seccion.activa { display: block; }
+Muestra la seccion que tiene las clases seccion y activa.
+JavaScript agrega o quita activa cuando se presiona un boton.
+
+.contenedor {
+Controla el espacio general donde estan las secciones.
+
+width: 90%;
+Usa el 90 por ciento del ancho de la pantalla.
+
+max-width: 620px;
+No permite que el contenido sea demasiado ancho.
+
+margin: 45px auto;
+Deja espacio arriba y abajo y centra horizontalmente el contenedor.
+
+form {
+Estiliza los formularios de ingreso y registro.
+
+background: white;
+Pone el fondo blanco.
+
+border: 1px solid #d4e0e8;
+Agrega un borde delgado.
+
+padding: 35px;
+Agrega espacio entre el borde y los campos.
+
+box-shadow: 0 8px 22px rgba(...);
+Agrega una sombra suave alrededor del formulario.
+
+.campo {
+margin-bottom: 17px;
+Deja espacio debajo de cada grupo de campo.
+
+label {
+Selecciona las etiquetas que explican los campos.
+
+display: block;
+Hace que la etiqueta ocupe una linea completa.
+
+input {
+Selecciona todas las cajas de texto.
+
+width: 100%;
+La caja ocupa todo el ancho disponible.
+
+padding: 12px;
+Agrega espacio interno para que sea comoda de usar.
+
+input:focus {
+Se aplica cuando el usuario esta escribiendo en una caja.
+
+.boton-principal {
+Estiliza el boton grande de los formularios.
+
+width: 100%;
+El boton ocupa todo el ancho del formulario.
+
+.boton-principal:hover {
+Cambia el color del boton cuando el cursor pasa por encima.
+
+.correcto { color: #187443; }
+Muestra los mensajes correctos en color verde.
+
+.error { color: #b3261e; }
+Muestra los mensajes de error en color rojo.
+
+@media (max-width: 800px) {
+Es una regla responsive. Se aplica cuando la pantalla mide 800 pixeles o menos.
+En este caso, la cabecera cambia a una columna para verse mejor en tabletas y celulares.
+
+@media (max-width: 450px) {
+Se aplica en pantallas muy pequeñas y reduce el espacio interno del formulario.
+
+
+3. EXPLICACION DEL ARCHIVO JAVASCRIPT
+======================================
+
+const botonesNavegacion = document.querySelectorAll("[data-seccion]");
+Busca todos los elementos que tienen el atributo data-seccion y los guarda.
+const significa que la variable no se va a reemplazar por otra.
+
+const secciones = document.querySelectorAll(".seccion");
+Busca todas las etiquetas que tienen la clase seccion.
+
+function mostrarSeccion(nombre) {
+Crea una funcion llamada mostrarSeccion. Recibe el nombre de la seccion que se quiere mostrar.
+
+secciones.forEach((seccion) => {
+Recorre una por una todas las secciones encontradas.
+
+seccion.classList.toggle("activa", seccion.id === nombre);
+Agrega la clase activa si el id de la seccion es igual al nombre recibido.
+Si no es igual, quita la clase activa.
+Asi solo una seccion queda visible.
+
+botonesNavegacion.forEach((boton) => {
+Recorre todos los botones de navegacion.
+
+boton.classList.toggle("activo", boton.dataset.seccion === nombre);
+Marca como activo el boton que corresponde a la seccion visible.
+
+data-seccion se lee en JavaScript como dataset.seccion.
+
+botonesNavegacion.forEach((boton) => {
+Se prepara cada boton para escuchar una accion.
+
+boton.addEventListener("click", () => mostrarSeccion(boton.dataset.seccion));
+Cuando el usuario hace click, se llama a mostrarSeccion con el nombre guardado
+por data-seccion.
+
+ document.querySelector("#formulario-registro").addEventListener("submit", ...)
+Busca el formulario de registro y escucha cuando se envia.
+
+evento.preventDefault();
+Evita que el navegador recargue la pagina al enviar el formulario.
+
+const nombre = document.querySelector("#rg_name").value;
+Lee el valor que escribio el usuario en el campo del nombre.
+.value significa el contenido de una caja de texto.
+
+const mensaje = document.querySelector("#mensaje-registro");
+Busca el espacio donde se mostrara el resultado del registro.
+
+if (contrasena !== confirmacion) {
+Compara la contraseña con su confirmacion.
+!== significa diferente de.
+
+mensaje.textContent = "Las contraseñas no coinciden.";
+Escribe un mensaje dentro del parrafo.
+
+mensaje.className = "mensaje error";
+Cambia las clases del mensaje para que se vea rojo.
+
+return;
+Termina la funcion en ese punto y no continua guardando los datos.
+
+localStorage.setItem("usuarioPixelStore", JSON.stringify({ nombre, correo, contrasena }));
+Guarda los datos en el navegador.
+- localStorage permite guardar informacion localmente.
+- setItem guarda un dato usando un nombre y un valor.
+- JSON.stringify convierte el objeto en texto para poder guardarlo.
+
+mensaje.textContent = "Registro exitoso. Ya puedes ingresar.";
+Muestra el mensaje de registro correcto.
+
+evento.target.reset();
+Limpia los campos del formulario despues de guardar los datos.
+
+formulario-ingreso
+La segunda parte del JavaScript escucha el envio del formulario de ingreso.
+
+const usuario = JSON.parse(localStorage.getItem("usuarioPixelStore"));
+Busca el usuario guardado.
+- getItem obtiene la informacion guardada.
+- JSON.parse convierte el texto nuevamente en un objeto.
+
+if (usuario && usuario.correo === correo && usuario.contrasena === contrasena) {
+Comprueba tres cosas:
+1. Que exista un usuario guardado.
+2. Que el correo escrito sea igual al correo registrado.
+3. Que la contraseña escrita sea igual a la registrada.
+
+mensaje.textContent = `Bienvenido, ${usuario.nombre}.`;
+Muestra un saludo usando el nombre registrado.
+Las comillas invertidas permiten insertar una variable dentro del texto.
+
+else {
+Se ejecuta cuando los datos no coinciden.
+
+mensaje.textContent = "Correo o contraseña incorrectos. Regístrate primero.";
+Muestra un mensaje de error al usuario.
+
+
+4. FLUJO COMPLETO DE LA PAGINA
+================================
+
+1. El usuario abre login.html.
+2. La seccion Inicio aparece porque tiene la clase activa.
+3. El usuario presiona Ingresar o Registrarse.
+4. JavaScript oculta las demas secciones y muestra la elegida.
+5. En Registro, el usuario escribe sus datos.
+6. JavaScript verifica que las contraseñas sean iguales.
+7. Si son iguales, los datos se guardan en localStorage.
+8. En Ingresar, JavaScript compara los datos escritos con los guardados.
+9. Si coinciden, muestra un mensaje de bienvenida.
+10. Si no coinciden, muestra un mensaje de error.
+
+
+5. FORMA FACIL DE EXPLICARLO EN LA SUSTENTACION
+================================================
+
+HTML es la estructura: crea titulos, botones, formularios y campos.
+
+
+6. ACTUALIZACION: PAGINA DE PRODUCTOS
+======================================
+
+La pagina de productos se encuentra en:
+Productos/productos.html
+
+Esta pagina aparece despues de iniciar sesion correctamente. Su objetivo es
+mostrar varios productos para que el usuario pueda seleccionar uno.
+
+La pagina utiliza tres archivos:
+- productos.html: contiene la estructura y los productos.
+- productos.css: contiene los colores, tamaños, bordes y distribucion.
+- productos.js: controla la seleccion de los productos.
+
+
+7. EXPLICACION DEL ARCHIVO productos.html
+==========================================
+
+<header class="barra-superior">
+Es la barra superior de la pagina. Contiene el logo, el nombre de la tienda y
+el enlace para cerrar sesion.
+
+<img class="logo-empresa" src="../pixel%20store.jpg" ...>
+Muestra la imagen de la empresa.
+- src indica la ruta de la imagen.
+- %20 representa el espacio que existe en el nombre del archivo.
+- alt describe la imagen para accesibilidad.
+
+<section class="panel-productos">
+Es el panel principal que contiene el titulo, la cuadricula y el resumen.
+
+<div class="cuadricula-productos">
+Organiza los productos en una cuadricula de tres columnas en pantallas grandes.
+En celulares cambia a una sola columna mediante una regla media.
+
+<article class="producto">
+Representa una tarjeta individual de producto. Cada tarjeta tiene:
+- nombre del producto;
+- descripcion;
+- categoria;
+- boton para seleccionar.
+
+data-producto="Monitor HD"
+Guarda el nombre del producto dentro del boton. JavaScript lee este dato cuando
+el usuario hace click.
+
+<div class="resumen">
+Muestra debajo de la cuadricula el producto que fue seleccionado.
+
+
+8. EXPLICACION DEL ARCHIVO productos.css
+=========================================
+
+body
+Usa el mismo fondo azul claro, color de texto y tipo de letra de la pagina de
+login.
+
+.barra-superior
+Usa el color azul oscuro #123b55, igual que el encabezado del login.
+
+.panel-productos
+Crea un panel blanco centrado con borde, esquinas redondeadas y sombra suave,
+similar a los formularios de ingreso y registro.
+
+.cuadricula-productos
+Usa display: grid para distribuir las tarjetas en tres columnas.
+
+.producto
+Da a cada tarjeta un borde claro, espacio interno y una altura estable.
+
+.boton-seleccionar
+Usa el azul #1976a8 para mantener el mismo estilo de los botones del login.
+Cuando se pasa el cursor o se selecciona el producto, cambia al color dorado
+#e5a93d.
+
+@media (max-width: 650px)
+Hace que la pagina se adapte a celulares. Las tarjetas pasan de tres columnas
+a una columna y se reducen algunos espacios.
+
+
+9. EXPLICACION DEL ARCHIVO productos.js
+=======================================
+
+const botonesProducto = document.querySelectorAll(".boton-seleccionar");
+Busca todos los botones de seleccion de productos.
+
+const productoElegido = document.querySelector("#producto-elegido");
+Busca el texto donde se mostrara el producto seleccionado.
+
+boton.addEventListener("click", () => { ... });
+Escucha el click de cada boton.
+
+botonesProducto.forEach((otroBoton) => {
+Recorre los botones y quita la seleccion anterior para que solo un producto
+quede seleccionado.
+
+boton.classList.add("seleccionado");
+Agrega una clase CSS al boton que el usuario selecciono.
+
+productoElegido.textContent = boton.dataset.producto;
+Lee el valor de data-producto y lo muestra en el resumen.
+
+
+10. CAMBIOS REALIZADOS EN EL PROYECTO
+=====================================
+
+1. Se creo la pagina Productos/productos.html.
+2. Se agrego el diseño en Productos/productos.css.
+3. Se agrego la seleccion interactiva en Productos/productos.js.
+4. Se agrego la imagen pixel store.jpg en los encabezados del login y productos.
+5. Se actualizaron los estilos del logo para que se adapte a diferentes tamaños.
+6. Se corrigio la redireccion del login.
+
+La ruta correcta desde Login/Login/login.html es:
+../Productos/productos.html
+
+Por eso, cuando el correo y la contraseña coinciden, JavaScript envia al usuario
+a la pagina de productos.
+
+
+11. FLUJO ACTUALIZADO DE LA PAGINA
+==================================
+
+1. El usuario abre login.html.
+2. Se registra o utiliza una cuenta guardada en localStorage.
+3. JavaScript verifica el correo y la contraseña.
+4. Si los datos son correctos, el usuario va a Productos/productos.html.
+5. La pagina muestra nueve productos.
+6. El usuario presiona Seleccionar en uno de ellos.
+7. JavaScript marca el boton y muestra el nombre en Producto elegido.
+8. El enlace Cerrar sesion devuelve al usuario a login.html.
+
+CSS es la apariencia: organiza los elementos, cambia colores, tamaños,
+espacios y adapta la pagina a diferentes pantallas.
+
+JavaScript es la logica: hace que los botones cambien de seccion, valida
+las contraseñas, guarda el usuario y permite iniciar sesion.
+
+Una frase corta para la sustentacion puede ser:
+"HTML construye la pagina, CSS le da el diseño y JavaScript controla las
+acciones del usuario y las validaciones del registro e ingreso."
+
+
+6. OBSERVACION SOBRE EL HTML ACTUAL
+====================================
+
+Al revisar el archivo login.html actual se encontraron etiquetas repetidas
+o ubicadas en un lugar incorrecto, por ejemplo un header dentro de head,
+un body que aparece despues del header y algunos cierres sobrantes.
+
+La estructura correcta debe ser:
+
+<html>
+  <head> ... </head>
+  <body>
+    <header> ... </header>
+    <main> ... </main>
+    <footer> ... </footer>
+    <script> ... </script>
+  </body>
+</html>
+
+Cada etiqueta debe abrirse y cerrarse en el orden correcto. Esta observacion
+es importante porque una pagina puede verse parcialmente bien aunque el HTML
+este desordenado. Para una sustentacion, conviene corregir esas etiquetas antes
+de presentar el proyecto.
